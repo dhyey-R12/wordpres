@@ -1,0 +1,97 @@
+{% extends "wrapper.twig" %}
+{% block content %}
+
+<div class="row">
+  <div class="col-xs-12 text-left">
+    <h2>{{ subscription }}</h2>
+  </div>
+</div>
+
+<br />
+<form method="post" data-toggle="validator" id="form-subscription-submit">
+
+  <div>
+    <div >
+      <h3>{{YourSelectedBooking}}</h3>
+    </div>
+    <div>
+      <strong>{{booking.BookableItemName}}</strong>
+    </div>
+    <div>
+      <strong>{{booking.DateDisplay}}</strong>
+    </div>
+
+    {% if booking.IsPaidEvent == "1" %}
+    <div  style="font-style:italic">
+      {{PaymentAmount}} : {{booking.PaymentAmount}} {{booking.PaymentCurrency}}
+    </div>
+    {% endif  %}
+    <br>
+    <div style="font-style:italic">{{LetsBookIt}}</div>
+  </div>
+
+  {% if warning is not empty  %}
+  <div class="alert alert-warning" role="alert">{{ warning }}</div>
+  {% endif  %}
+
+  <div class="form-group">
+    <label for="courtesy">{{ title }}</label>
+    <select name="courtesy" class="form-control">
+      <option value="{{titleMrs}}">{{titleMrs}}</option>
+      <option value="{{titleMr}}">{{titleMr}}</option>
+      <option value="{{titleMiss}}">{{titleMiss}}</option>
+      <option value="{{titleDr}}">{{titleDr}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="firstname">{{ firstname }} (*)</label>
+    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="{{ firstname }}" value="{{booking.FirstName}}" required>
+  </div>
+
+  <div class="form-group">
+    <label for="lastname">{{ lastname }} (*)</label>
+    <input type="text" class="form-control" id="lastname" name="lastname" placeholder="{{ lastname }}" value="{{booking.LastName}}" required>
+  </div>
+
+  <div class="form-group">
+    <label for="email">{{ email }} (*)</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="{{ email }}" value="{{booking.Email}}" required>
+  </div>
+
+  <div class="form-group">
+    <label for="phone">{{ phone }} (*)</label>
+    <input type="phone" class="form-control" id="phone" name="phone" placeholder="{{ phone }}" value="{{booking.PhoneNumber}}" required>
+  </div>
+
+  <div class="form-group">
+    <label for="description">{{ description }}</label>
+    <textarea class="form-control" rows="3" id="description" name="description" placeholder="{{ description }}">{{booking.Description}}</textarea>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-6 " (click)="OnBackClicked()">
+      <a href="{{pageUrl}}?{{backUrlQuery}}"><button type="button" class="btn btn-warning btn-lg">{{ back }}</button></a>
+    </div>
+    <div class="col-xs-6">
+         <span class="pull-right">
+           <button type="button" id="submit-subscription-button" class="btn btn-success btn-lg">{{ submit }}</button>
+         </span>
+    </div>
+  </div>
+</form>
+
+<script type="text/javascript">
+jQuery(document).ready(function ($) {
+  $("#submit-subscription-button").click(function() {
+    if({{booking.IsPaidEvent}} == "1"){
+      $("#form-subscription-submit").submit();
+    }
+    else{
+      $("#form-subscription-submit").submit();
+    }
+    return false;
+  });
+});
+</script>
+{% endblock %}

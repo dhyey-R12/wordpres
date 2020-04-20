@@ -1,0 +1,11 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:9938c8303b8ba04be58905b2a9de9f96
+SUMMARY:BAEBERZ - 14 Apr 2020 12:00pm
+DTSTART;TZID=+00:00:20200414T120000
+DTEND;TZID=+00:00:20200414T130000
+DESCRIPTION:Salon name: BAEBERZ \n\nSalon address: Main Street 123 \n\nSalon phone: 00391122334455 \n\nSalon email: barberz@gmail.com \n\nBooked services:\nHair Cut: 12:00pm ➝ 12:00pm\n\nBooking notes:\nNone\n\nBooking status: Confirmed
+LOCATION:Main Street 123
+END:VEVENT
+END:VCALENDAR

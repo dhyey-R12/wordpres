@@ -1,0 +1,28 @@
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /wordpress/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /wordpress/index.php [L]
+</IfModule>
+
+# END WordPress
+# BEGIN HttpHeaders
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  <IfModule mod_setenvif.c>
+    SetEnvIf Origin "^(\*)$" CORS=$0
+  </IfModule>
+  Header set Access-Control-Allow-Origin %{CORS}e env=CORS
+  Header set Access-Control-Allow-Credentials "true" env=CORS
+  <FilesMatch "\.(php|html)$">
+    Header set X-Frame-Options "DENY"
+    Header set X-XSS-Protection "0"
+    Header set Strict-Transport-Security "max-age=0" env=HTTPS
+    Header set Referrer-Policy ""
+  </FilesMatch>
+</IfModule>
+# END HttpHeaders

@@ -1,0 +1,11 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:fff0e3342ae03047f1ccd9a8cdd4d0bb
+SUMMARY:BARBERZ - 14 Apr 2020 5:00pm
+DTSTART;TZID=+00:00:20200414T170000
+DTEND;TZID=+00:00:20200414T180000
+DESCRIPTION:Salon name: BARBERZ \n\nSalon address: Main Street 123 \n\nSalon phone: 00391122334455 \n\nSalon email: dhyey@gmail.com \n\nBooked services:\nHair Cut: 5:00pm ➝ 5:00pm\n\nBooking notes:\nNone\n\nBooking status: Confirmed
+LOCATION:Main Street 123
+END:VEVENT
+END:VCALENDAR

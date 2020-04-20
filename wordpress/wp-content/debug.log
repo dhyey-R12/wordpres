@@ -1,0 +1,24 @@
+[14-Apr-2020 10:59:23 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\wordpress\wp-includes\script-loader.php on line 757
+[14-Apr-2020 10:59:23 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\wordpress\wp-includes\script-loader.php on line 757
+[14-Apr-2020 10:59:24 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\wordpress\wp-includes\script-loader.php on line 758
+[14-Apr-2020 10:59:24 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\wordpress\wp-includes\script-loader.php on line 758
+[14-Apr-2020 10:59:24 UTC] PHP Deprecated:  Function get_magic_quotes_gpc() is deprecated in C:\xampp\htdocs\wordpress\wp-includes\load.php on line 926
+[14-Apr-2020 10:59:24 UTC] PHP Fatal error:  Cannot redeclare register_api_hooks() (previously declared in C:\xampp\htdocs\wordpress\wp-content\themes\neve\functions.php:89) in C:\xampp\htdocs\wordpress\wp-content\themes\neve\functions.php on line 127
+[14-Apr-2020 10:59:53 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\wordpress\wp-includes\script-loader.php on line 757
+[14-Apr-2020 10:59:53 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\wordpress\wp-includes\script-loader.php on line 757
+[14-Apr-2020 10:59:53 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\wordpress\wp-includes\script-loader.php on line 758
+[14-Apr-2020 10:59:53 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\wordpress\wp-includes\script-loader.php on line 758
+[14-Apr-2020 10:59:53 UTC] PHP Deprecated:  Function get_magic_quotes_gpc() is deprecated in C:\xampp\htdocs\wordpress\wp-includes\load.php on line 926
+[14-Apr-2020 10:59:53 UTC] PHP Fatal error:  Cannot redeclare register_api_hooks() (previously declared in C:\xampp\htdocs\wordpress\wp-content\themes\neve\functions.php:89) in C:\xampp\htdocs\wordpress\wp-content\themes\neve\functions.php on line 127
+[14-Apr-2020 11:00:02 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\wordpress\wp-includes\script-loader.php on line 757
+[14-Apr-2020 11:00:02 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\wordpress\wp-includes\script-loader.php on line 757
+[14-Apr-2020 11:00:02 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\wordpress\wp-includes\script-loader.php on line 758
+[14-Apr-2020 11:00:02 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\wordpress\wp-includes\script-loader.php on line 758
+[14-Apr-2020 11:00:02 UTC] PHP Deprecated:  Function get_magic_quotes_gpc() is deprecated in C:\xampp\htdocs\wordpress\wp-includes\load.php on line 926
+[14-Apr-2020 11:00:02 UTC] PHP Fatal error:  Cannot redeclare register_api_hooks() (previously declared in C:\xampp\htdocs\wordpress\wp-content\themes\neve\functions.php:89) in C:\xampp\htdocs\wordpress\wp-content\themes\neve\functions.php on line 127
+[14-Apr-2020 11:00:16 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\wordpress\wp-includes\script-loader.php on line 757
+[14-Apr-2020 11:00:16 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\wordpress\wp-includes\script-loader.php on line 757
+[14-Apr-2020 11:00:16 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\wordpress\wp-includes\script-loader.php on line 758
+[14-Apr-2020 11:00:16 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\wordpress\wp-includes\script-loader.php on line 758
+[14-Apr-2020 11:00:16 UTC] PHP Deprecated:  Function get_magic_quotes_gpc() is deprecated in C:\xampp\htdocs\wordpress\wp-includes\load.php on line 926
+[14-Apr-2020 11:00:16 UTC] PHP Fatal error:  Cannot redeclare register_api_hooks() (previously declared in C:\xampp\htdocs\wordpress\wp-content\themes\neve\functions.php:89) in C:\xampp\htdocs\wordpress\wp-content\themes\neve\functions.php on line 127

@@ -1,0 +1,23 @@
+[15/Apr/2020:07:35:25] (ℹ️): WordPress Instance Info:
+[15/Apr/2020:07:35:25] (ℹ️): Home URL : http://localhost/wordpress
+[15/Apr/2020:07:35:25] (ℹ️): Site URL : http://localhost/wordpress
+[15/Apr/2020:07:35:25] (ℹ️): WordPress Version : 5.2.5
+[15/Apr/2020:07:35:25] (ℹ️): Onboarding Version : 1.8.2
+[15/Apr/2020:07:35:25] (ℹ️): Multisite : No
+[15/Apr/2020:07:35:25] (ℹ️): Server Info : Apache/2.4.41 (Win64) OpenSSL/1.1.1c PHP/7.4.3
+[15/Apr/2020:07:35:25] (ℹ️): PHP Version : 7.4.3
+[15/Apr/2020:07:35:25] (ℹ️): HTTPS : No
+[15/Apr/2020:07:35:25] (ℹ️): PHP Max Execution Time : 120
+[15/Apr/2020:07:35:25] (ℹ️): PHP Max Input Vars : 1000
+[15/Apr/2020:07:35:25] (ℹ️): Max Upload Size : 41943040
+[15/Apr/2020:07:35:25] (ℹ️): Plugins:
+[15/Apr/2020:07:35:25] (ℹ️): [PLUGIN] Akismet Anti-Spam : v4.1.4 (Automattic)
+[15/Apr/2020:07:35:25] (ℹ️): [PLUGIN] Elementor : v2.9.7 (Elementor.com)
+[15/Apr/2020:07:35:25] (ℹ️): [PLUGIN] Hello Dolly : v1.7.2 (Matt Mullenweg)
+[15/Apr/2020:07:35:25] (ℹ️): [PLUGIN] HTTP Headers : v1.15.0 (Dimitar Ivanov)
+[15/Apr/2020:07:35:25] (ℹ️): [PLUGIN] JSON API Auth : v2.4.0 (Ali Qureshi)
+[15/Apr/2020:07:35:25] (ℹ️): [PLUGIN] JSON API : v2.0.0 (Dan Phiffer, Ali Qureshi)
+[15/Apr/2020:07:35:25] (ℹ️): [PLUGIN] JSON API User : v3.5.0 (Ali Qureshi)
+[15/Apr/2020:07:35:25] (ℹ️): [PLUGIN] JWT Authentication for WP-API : v1.2.6 (Enrique Chavez)
+[15/Apr/2020:07:35:25] (ℹ️): [PLUGIN] Salon Booking Wordpress Plugin - Free Version : v3.37 (Salon Booking System)
+[15/Apr/2020:07:35:25] (ℹ️): [PLUGIN] WP REST API Controller : v2.0.3 (YIKES, Inc.)

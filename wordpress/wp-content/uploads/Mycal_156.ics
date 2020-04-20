@@ -1,0 +1,11 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:545b2d9d16aff2fd991496daf07bdc73
+SUMMARY:BARBERZ - 20 Apr 2020 8:00am
+DTSTART;TZID=+00:00:20200420T080000
+DTEND;TZID=+00:00:20200420T090000
+DESCRIPTION:Salon name: BARBERZ \n\nSalon address: Main Street 123 \n\nSalon phone: 00391122334455 \n\nSalon email: dhyey@gmail.com \n\nBooked services:\nBeard Styling​: 8:00am ➝ 8:00am\n\nBooking notes:\nNone\n\nBooking status: Confirmed
+LOCATION:Main Street 123
+END:VEVENT
+END:VCALENDAR

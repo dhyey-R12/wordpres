@@ -1,0 +1,102 @@
+{% extends "wrapper.twig" %}
+{% block content %}
+
+{% if isError %}
+<div class="alert alert-danger" role="alert">{{errorMessage}}</div>
+{% endif %}
+
+{% if hideSearchForm == false %}
+
+<form action="" method="post" id="submitDateSearch">
+  <ul uk-accordion>
+    <li style="list-style: none;">
+        <a class="uk-accordion-title" href="#" style="text-decoration:none;">{{ searchForEventsBetween }}</a>
+        <div class="uk-accordion-content">
+            <div class="form-group">
+                <label for="fromDate">{{ fromLabel }}</label>
+                <input id="fromDate" data-value="{{fromDate}}" class="datepickerFrom form-control" name="fromDate" type="text" >
+              </div>
+              <div class="form-group">
+                <label for="toDate">{{ toLabel }}</label>
+                <input id="toDate" data-value="{{toDate}}" class="datepickerTo form-control" name="toDate" type="text"  >
+              </div>
+        </div>
+    </li>
+  </ul>
+
+  {% if bookableItemSelectedByShortcode is null  %}
+  <div class="form-group">
+    <label for="bookableItems">{{ bookableItemsLabel }}</label>
+    <select class="form-control" id="bookableItems" name="bookableItems" onchange="this.form.submit()">
+      {% set nb = 0 %}
+      {% for item in bookableItems %}
+      <option {% if nb == selectedId %}selected{% endif %} value="{{nb}}">{{item.Name}}</option>
+      {% set nb = nb +1 %}
+      {% endfor %}
+    </select>
+  </div>
+{% endif %}
+
+{% if locationValue is not null %}
+  <div class="form-group">
+    <label for="location">{{ locationLabel }}</label>
+    <input type="text" class="form-control" placeholder="{{locationValue}}" readonly>
+  </div>
+{% endif %}
+
+{% if descriptionValue is not null %}
+  <div class="form-group">
+    <label for="description">{{ descriptionLabel }}</label>
+    <p>{{ descriptionValue }}</p>
+  </div>
+{% endif %}
+
+</form>
+<div id="container"></div>
+
+{% if pickerTranslated|length > 0 %}
+<script type="text/javascript">
+{{pickerTranslated|raw }}
+</script>
+{% endif %}
+
+<script type="text/javascript">
+var $input = jQuery('.datepickerFrom').pickadate({
+  format: '{{dateFormat}}',
+  formatSubmit: 'd m yyyy',
+  container: '#container',
+  closeOnSelect: true,
+  closeOnClear: false
+})
+var picker = $input.pickadate('picker')
+</script>
+
+<script type="text/javascript">
+var $input = jQuery('.datepickerTo').pickadate({
+  format: '{{dateFormat}}',
+  formatSubmit: 'd m yyyy',
+  container: '#container',
+  closeOnSelect: true,
+  closeOnClear: false
+})
+var picker = $input.pickadate('picker')
+</script>
+
+<script type="text/javascript">
+jQuery(document).ready(function ($) {
+
+  $("#fromDate").change(function() {
+    $("#submitDateSearch").submit();
+  });
+
+  $("#toDate").change(function() {
+    $("#submitDateSearch").submit();
+  });
+});
+</script>
+
+{% endif %}
+{% block searchResult %}
+
+{% endblock %}
+{% endblock %}
