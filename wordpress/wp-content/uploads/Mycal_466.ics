@@ -1,0 +1,11 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:9e812ca6c34a9e3d50fbfb3bfb02d073
+SUMMARY:BARBERZ - 21 May 2020 1:00pm
+DTSTART;TZID=+00:00:20200521T130000
+DTEND;TZID=+00:00:20200521T140000
+DESCRIPTION:Salon name: BARBERZ \n\nSalon address: Main Street 123 \n\nSalon phone: 00391122334455 \n\nSalon email: dhyey@gmail.com \n\nBooked services:\nrachit: 1:00pm ➝ 1:00pm\n\nBooking notes:\nNone\n\nBooking status: Confirmed
+LOCATION:Main Street 123
+END:VEVENT
+END:VCALENDAR
