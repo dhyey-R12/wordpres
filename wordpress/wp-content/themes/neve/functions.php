@@ -105,6 +105,14 @@ function login($request){
 	$_SESSION['se_login'] = $creds['user_login'];
 	$_SESSION['se_password'] = $creds['user_password'];
 
+	if($_SESSION['se_login'] == "" || $_SESSION['se_password'] == ""){
+
+		$required = "Unauthorized";
+		http_response_code(401);
+		echo $required;
+		exit;
+	}
+
 	// echo $_SESSION['se_login'];
 	// echo $_SESSION['se_password'];
 
@@ -119,21 +127,6 @@ function login($request){
 	return $user;
 }
 
-// function login($request){
-// 	$creds = array();
-// 	$creds['user_login'] = $request["username"];
-// 	$creds['user_password'] =  $request["password"];
-// 	$creds['remember'] = true;
-// 	$user = wp_signon( $creds, false );
-
-// 	if ( is_wp_error($user) )
-// 		echo $user->get_error_message();
-
-// 	return $user;
-// }
-
-// add_action( 'after_setup_theme', 'custom_login' );
-
 function add_cors_http_header(){
 	header("Access-Control-Allow-Origin: *");
 }
@@ -147,29 +140,9 @@ function add_allowed_origins($origins) {
 }
 add_filter( 'something', 'regis_options' );
 
-// add_action( 'rest_api_init', 'register_api_hooks_appoint' );
-
-// function register_api_hooks_appoint() {
-// 	register_rest_route(
-// 		'custom-plugin', '/appointment/',
-// 		array(
-// 			'methods'  => 'POST',
-// 			'callback' => 'booking',
-// 		)
-// 	);
-// }
-
-// function booking($request){
-// 	$creds = array();
-// 	$nm="dhyey";
-// 	echo $nm;
-// 	if ( is_wp_error($user) )
-//       echo $user->get_error_message();
-//     return $user;
-// }
-
-// // add_action( 'after_setup_theme', 'custom_booking' );
 add_action( 'rest_api_init', 'register_api_hooks_appoint' );
+
+//////////////////////////////////////////*appointment form*//////////////////////////////////////////
 
 function register_api_hooks_appoint() {
 	register_rest_route(
@@ -253,8 +226,10 @@ function register_api_hooks_logout() {
 
 function logout(){
 	session_destroy();
-
+	echo "destroy";
 }
+
+//////////////////////////////////////////*data display*//////////////////////////////////////////
 
 add_action( 'rest_api_init', 'register_api_hooks_book_appoint' );
 
@@ -267,16 +242,30 @@ function register_api_hooks_book_appoint() {
 		)
 	);
 }
-//////////////////////////////////////////*data display*//////////////////////////////////////////
 
 function appointment($request){
 	// echo "hello";
 
 	$pinged = $_GET['pinged'];
-	// $ID = $_GET['ID']; //ID
-	// var_dump($ID);
+	// var_dump($request);
 
-	// var_dump($pinged);
+	$json = $request->get_headers();
+	// var_dump($json);
+
+	// echo " <h1>dhyey</h1> ";
+	// echo "<br>";
+
+	$user_req_email = '';
+	foreach ($json as $key => $feature) {
+		if($key == 'auth'){
+			$user_email = $feature[0];
+		}
+	}
+
+	if($user_email){
+		echo $user_email;
+		exit();
+	}
 
 	$servername = "localhost";
 	$username = "root";
@@ -291,6 +280,7 @@ function appointment($request){
 	$result = mysqli_query($conn, $sql);
 	$respnose = []; 
 
+	// print_r($_SERVER);
 
 	if (mysqli_num_rows($result) > 0) {
 		while($row = mysqli_fetch_assoc($result)) {
@@ -376,8 +366,9 @@ function record(){
 	parse_str(file_get_contents('php://input'),$_PUT);
     // print_r($_PUT);
 
-	$json_array[] = $_PUT;
+	//
 	$json = json_encode($json_array);
+	echo $json;;
 	echo $json;
 
 	$sql = mysqli_query($conn, "UPDATE wp_posts SET
@@ -429,6 +420,132 @@ function deletedata(){
 	} else{ 
 		echo "ERROR:Records is not delete . " . $mysqli->error;
 	} 
-	// echo json_encode($query);
-    // return $data;
 }
+
+//////////////////////////////////////////*signup*//////////////////////////////////////////
+
+add_action( 'rest_api_init', 'register_api_hooks_singup');
+
+function register_api_hooks_singup() {
+	register_rest_route(
+		'custom-plugin', '/signup/',
+		array(
+			'methods'  => 'POST',
+			'callback' => 'signupdata',
+		)
+	);
+}
+function signupdata($request){
+
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "wordpress";
+
+	$ul = $_POST['user_login'];
+	$up = $_POST['user_pass'];
+	// $md = md5($up);
+	$user_pass = wp_hash_password("$up");
+	$ue = $_POST['user_email'];
+	$nk = $_POST['user_nicename'];
+	$d= date("Y-m-d h:i:sa");
+
+	var_dump($nk);
+	var_dump($up);
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+	$qy = "INSERT into wp_users (user_login, user_pass, user_email, user_registered, user_nicename, display_name) 
+	VALUES ('$ul','$user_pass','$ue','$d','$nk','$nk')";
+
+	if (mysqli_query($conn, $qy)) {
+		echo "New record created successfully";
+	} else {
+		echo "Error: " . $qy . "<br>" . mysqli_error($conn);
+	}
+}
+
+//////////////////////////////////////////*forgot*//////////////////////////////////////////
+add_action( 'rest_api_init', 'register_api_hooks_forgot' );
+
+function register_api_hooks_forgot() {
+	register_rest_route(
+		'custom-plugin', '/forgot/',
+		array(
+			'methods'  => 'PUT',
+			'callback' => 'pass',
+		)
+	);
+}
+
+function pass(){
+
+	$user_email = $_GET['user_email'];
+	$user_pass = $_POST['user_pass'];
+	$user_pass = wp_hash_password("$user_pass");
+	var_dump($user_pass);
+
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "wordpress";
+
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+
+	parse_str( file_get_contents("php://input"), $_PUT );
+	print_r($_PUT);
+	var_dump($ID);
+
+	$sql=mysqli_query($conn, "UPDATE wp_users SET user_pass='$user_pass' WHERE  user_email = '$user_email'");
+
+	if($sql==true){ 
+		echo "Records was updated successfully.";
+
+	} else{ 
+		echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
+	}
+}
+
+	// $user_login = $_GET['user_login'];
+	// $user_email = $_GET['user_email'];
+	// var_dump($user_login);
+	// var_dump($user_email);
+	// $up = $_POST['user_pass'];
+	// // $md = md5($up);
+	// // $user_pass = wp_hash_password("$up");
+	// var_dump($user_pass);
+
+	// $servername = "localhost";
+	// $username = "root";
+	// $password = "";
+	// $dbname = "wordpress";
+
+	// $conn = new mysqli($servername, $username, $password, $dbname);
+	// if ($conn->connect_error) {
+	// 	die("Connection failed: " . $conn->connect_error);
+	// }
+	// parse_str(file_get_contents('php://input'),$_PUT);
+ //    // print_r($_PUT);
+
+	// //
+	// $json_array[] = $_PUT;
+ //    $json = json_encode($json_array);
+ //    echo $json;
+
+	// // $sql = mysqli_query($conn, "UPDATE wp_users SET user_pass='$up' WHERE user_email = '$user_email' ");
+
+ // 	$sql = mysqli_query($conn, "UPDATE wp_posts SET	user_pass='".$_PUT['user_pass']."' WHERE  user_email = '$user_email'");
+	// if ($conn->query($sql) === TRUE) {	
+	// 	echo "Record updated successfully";
+	// } else {
+	// 	echo "Error updating record: " . $conn->error;
+	// }
+	// $conn->close();
